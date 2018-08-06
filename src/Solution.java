@@ -1,13 +1,13 @@
 
-import solution.Solution627_2;
+import solution.Solution200_3;
 
-import java.util.List;
+
 
 public class Solution {
     public static void main(String[] args) {
-        Solution627_2 solution627_2 = new Solution627_2();
+        Solution200_3 solution200_3 = new Solution200_3();
 
-        int result = solution627_2.longestPalindrome("abccccdd");
+        String result = solution200_3.longestPalindrome("abcdadcab");
         System.out.println(result);
 
     }

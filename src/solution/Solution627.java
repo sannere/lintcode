@@ -33,6 +33,5 @@ public class Solution627 {
         }
 
         return length;
-
     }
 }
