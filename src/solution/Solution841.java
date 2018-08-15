@@ -10,88 +10,86 @@ public class Solution841 {
      * @return: The answer
      */
     public String stringReplace(String[] a, String[] b, String s) {
-        Hashtable<Integer, Integer> hash = new Hashtable();//key: index of s, value: index of a[]
-        int sIndex = s.length();
 
+        Hashtable<Integer, Integer> hash  = new Hashtable();
+        int start = 0;
+        int strIndex;
+        int min = 0;
 
-        for (int i = 0; i < a.length; i++) {
-            int index = isSubstring(s,a[i]);
-            int startIndex;
-          //  int hash.get(index) = hash.get(index);
-            if (index != -1 ) {//a[i]是s的子字符串
-                if (sIndex == s.length()) {
-                    hash.put(index,i);
-                    sIndex = index;
-                }
-                else if (index < sIndex) {// {a[i]是新的最左的子字符串
-                    startIndex = index + a[i].length();
-                    renewHash(s.substring(startIndex), a,hash.get(sIndex), hash,startIndex);
-                    sIndex = index;
-                    hash.put(sIndex,i);
-                }
-                else if (index == sIndex && a[i].length() > a[hash.get(index)].length()) {
-                    startIndex = index + a[i].length();
-                    renewHash(s.substring(startIndex),a,hash.get(sIndex),hash,startIndex);
-                    hash.put(sIndex,i);
-                }
-                else if (index == sIndex && a[i].length() < a[hash.get(index)].length() || index > sIndex) {
-                    startIndex = sIndex + a[hash.get(sIndex)].length();
-                    renewHash(s.substring(startIndex),a,i,hash,startIndex);
+        while (min != s.length()) {
+            min = s.length();
+
+            for (int i = 0; i < a.length; i++) {
+                strIndex = isSubstring(s, a[i], start);
+                if (strIndex != -1) {
+                    if (min == s.length()) {
+                        min = strIndex;
+                        hash.put(strIndex, i);
+                    }
+                    else if (strIndex < min || strIndex == min && a[i].length() > a[hash.get(min)].length()) {
+                        hash.put(strIndex, i);
+                        min = strIndex;
+                    }
                 }
             }
-        }
-        for (int i = 0; i < s.length(); i++) {
-            if (hash.containsKey(i)) {
-                String str = b[hash.get(i)];
-                s = s.substring(0,i) + str + s.substring(i + str.length());
+            if (min != s.length()) {
+                start = min + b[hash.get(min)].length();
+                s = s.substring(0,min) + b[hash.get(min)] + s.substring(start);
             }
         }
+
 
 
         return s;
 
 
     }
-    private int isSubstring(String s, String t) {
-        int index = -1, i = 0, j = 0;
+    private int isSubstring(String s, String target, int start) {
+        String source = s.substring(start);
 
-        if (s.length() < t.length()) {
-            return index;
+        int mod = 10000000;
+
+        if (source.isEmpty() || target.isEmpty()) {
+            return -1;
         }
 
-        while (i < s.length() && j < t.length()) {
-            while (i < s.length() && s.charAt(i) != t.charAt(j)) {
-                i++;
+        int m = target.length();
+        if (m == 0) {
+            return start;
+        }
+
+        //get 31^m
+        int power = 1;
+        for (int i = 0; i < m; i++) {
+            power = (power * 31) % mod;
+        }
+
+        //get targetHash
+
+        int targetHash = 0;
+        for (int i = 0; i < m; i++) {
+            targetHash = (targetHash * 31 + target.charAt(i)) % mod;
+        }
+
+        int sourceHash = 0;
+        for (int i = 0; i < source.length(); i++) {
+            sourceHash = (sourceHash * 31 + source.charAt(i)) % mod;
+            if (i < m - 1) {
+                continue;
             }
-            while (i < s.length() && j < t.length() && s.charAt(i) == t.charAt(j)) {
-                i++;
-                j++;
+
+            if (i >= m) {
+                sourceHash = sourceHash - source.charAt(i - m) * power % mod;
+                if (sourceHash < 0) {
+                    sourceHash += mod;
+                }
             }
-            if (j == t.length()) {
-                index = i - j;
-            }
-            else {
-                i = i - j + 1;
-                j = 0;
+
+            if (sourceHash == targetHash && source.substring(i - m + 1, i + 1).equals(target)) {
+                return i - m + 1 + start;
             }
         }
 
-        return index;
-    }
-    private void makeHash(String s, String[] arr, int i, Hashtable<Integer,Integer> hash, int start, int small) {
-        int index = isSubstring(s, arr[i]);
-
-        if (index != -1) {
-            index += start;
-            if (index > small)
-            index = index + start;
-            if (hash.containsKey(index)) {
-                start = index + arr[i].length();
-                renewHash(s.substring(start), arr, hash.get(index), hash,start);
-                hash.put(index, i);
-            } else {
-                hash.put(index, i);
-            }
-        }
+        return -1;
     }
 }
