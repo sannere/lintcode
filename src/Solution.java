@@ -1,15 +1,14 @@
 
-import solution.Solution585;
+import solution.Solution428_2;
 
-import java.util.List;
+
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution585 solution585 = new Solution585();
+        Solution428_2 solution428_2 = new Solution428_2();
 
-        int[] a = {1,2,3,4};
-        int result = solution585.mountainSequence(a );
+        double result = solution428_2.myPow(2,3);
         System.out.println(result);
 
     }
