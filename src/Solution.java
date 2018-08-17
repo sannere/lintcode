@@ -1,15 +1,17 @@
 
-import solution.Solution428_2;
+import solution.Solution148;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution428_2 solution428_2 = new Solution428_2();
+        Solution148 solution148 = new Solution148();
 
-        double result = solution428_2.myPow(2,3);
-        System.out.println(result);
+        int[] nums = {1,2,0,2,0,0,1,2,2,0};
+        
+        solution148.sortColors(nums);
+        System.out.println(nums);
 
     }
 }
