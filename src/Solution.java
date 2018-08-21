@@ -1,16 +1,16 @@
 
-import solution.Solution74;
+import solution.Solution159;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution74 solution74 = new Solution74();
+        Solution159 solution159 = new Solution159();
 
-      //  int[] nums = {1,2,0,2,0,0,1,2,2,0};
+        int[] nums = {1,2,3};
         
-        int result = solution74.findFirstBadVersion(5);
+        int result = solution159.findMin(nums);
         System.out.println(result);
 
     }
