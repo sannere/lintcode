@@ -1,17 +1,20 @@
 
-import solution.Solution159;
+
+import solution.Solution539;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution159 solution159 = new Solution159();
+        Solution539 solution539 = new Solution539();
 
-        int[] nums = {1,2,3};
+        int[] nums = {1,3,0,2,0,4};
+
         
-        int result = solution159.findMin(nums);
-        System.out.println(result);
+     //   int result = solution539.moveZeroes(nums);
+        solution539.moveZeroes(nums);
+       // System.out.println(result);
 
     }
 }
