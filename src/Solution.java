@@ -1,20 +1,24 @@
 
 
-import solution.Solution539;
+import solution.Solution57;
 
-
+import java.util.List;
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution539 solution539 = new Solution539();
+        Solution57 solution57 = new Solution57();
 
-        int[] nums = {1,3,0,2,0,4};
+        int[] nums = {1,0,-1,-1,-1,-1,0,1,1,1};
 
         
-     //   int result = solution539.moveZeroes(nums);
-        solution539.moveZeroes(nums);
-       // System.out.println(result);
+        List<List<Integer>> result = solution57.threeSum(nums);
+       // solution57.deduplication(nums);
+     //   System.out.println("result: " + result);
+    //    System.out.println("nums:");
+      //  for (int i = 0; i < nums.length; i++) {
+      //      System.out.print("[" + i + "]:" + nums[i] + "  ");
+      //  }
 
     }
 }
