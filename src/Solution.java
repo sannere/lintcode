@@ -1,25 +1,23 @@
 
 
-import solution.Solution464;
-
-import java.util.List;
-import basicStructure.UndirectedGraphNode;
+import solution.Solution5_2;
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution464 solution464 = new Solution464();
+        Solution5_2 solution5_2 = new Solution5_2();
 
-        int[] nums = {3, 2, 1};
+        int[] nums = {1,2,3,4,5,6,8,9,10,7};
 
 
-        //int[] result = solution464.twoSum7(numbers, -1);
-        solution464.sortIntegers2(nums);
-       // System.out.println(numbers[0] + " " + result[1]);
-        System.out.println("nums:");
-        for (int i = 0; i < nums.length; i++) {
+        int result = solution5_2.kthLargestElement(2, nums);
+        //solution5_2.sortIntegers2(nums);
+        System.out.println("result: " + result);
+      //  System.out.println("nums:");
+      /*  for (int i = 0; i < nums.length; i++) {
             System.out.print("[" + i + "]:" + nums[i] + "  ");
         }
+        */
 
     }
 }
