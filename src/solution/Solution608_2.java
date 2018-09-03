@@ -11,6 +11,22 @@ public class Solution608_2 {
             return new int[0];
         }
 
-        int 
+        int[] results = new int[2];
+        int left = 0, right = nums.length - 1;
+
+        while (left < right) {
+            if (nums[left] + nums[right] > target) {
+                right--;
+            }
+            else if (nums[left] + nums[right] < target) {
+                left++;
+            }
+            else {
+                results[0] = ++left;
+                results[1] = ++right;
+                break;
+            }
+        }
+        return results;
     }
 }

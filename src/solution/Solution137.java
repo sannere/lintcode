@@ -2,7 +2,8 @@ package solution;
 
 import basicStructure.UndirectedGraphNode;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class Solution137 {
     /*
@@ -10,23 +11,23 @@ public class Solution137 {
      * @return: A undirected graph node
      */
 
-    private HashMap<Integer, UndirectedGraphNode> map = new HashMap();
+    private HashMap<UndirectedGraphNode,UndirectedGraphNode> map = new HashMap();
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
         if (node == null) {
             return node;
         }
 
-        if (map.containsKey(node.label)) {
-            return map.get(node.label);
+        if (map.containsKey(node)) {
+            return map.get(node);
         }
 
-        UndirectedGraphNode result = new UndirectedGraphNode(node.label);
-        map.put(result.label, result);
+        UndirectedGraphNode copyNode = new UndirectedGraphNode(node.label);
+        map.put(node, copyNode);
 
         for (UndirectedGraphNode neighbor : node.neighbors) {
-            result.neighbors.add(cloneGraph(neighbor));
+            copyNode.neighbors.add(cloneGraph(neighbor));
         }
 
-        return result;
+        return copyNode;
     }
 }
