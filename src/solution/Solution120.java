@@ -10,50 +10,44 @@ public class Solution120 {
      * @return: An integer
      */
     public int ladderLength(String start, String end, Set<String> dict) {
-        if (start.isEmpty() || end.isEmpty() || start.length() != end.length()
-                || start.equals(end)) {
+        if (start.isEmpty() || end.isEmpty() || start.equals(end)) {
             return 0;
         }
 
-        int path = 1;
+        int path = 0;
         Queue<String> queue = new LinkedList();
-        ArrayList<String> list = new ArrayList();
+        HashSet<String> set = new HashSet();
 
         dict.add(end);
-        Iterator<String> iter = dict.iterator();
-        while (iter.hasNext()) {
-            list.add(iter.next());
-        }
 
         queue.offer(start);
+        set.add(start);
 
         while (!queue.isEmpty()) {
             int size = queue.size();
             path++;
+
             while (size > 0) {
-                String s = queue.poll();
-                if (s.equals(end)) {
+                String word = queue.poll();
+
+
+                if (word.equals(end)) {
                     return path;
                 }
-                for (String t : list) {
-                    if (transform(s, t)) {
-                        queue.add(t);
-                        list.remove(t);
+
+                for (int i = 0; i < word.length(); i++) {
+                    for (char ch = 'a'; ch <= 'z'; ch++) {
+                        String nextWord = word.substring(0,i) + ch + word.substring(i + 1);
+                        //find a new nextword in dict:
+                        if (!word.equals(nextWord) && dict.contains(nextWord) && !set.contains(nextWord)) {
+                            queue.offer(nextWord);
+                            set.add(nextWord);
+                        }
                     }
                 }
                 size--;
             }
         }
         return 0;
-
-    }
-    private boolean transform(String s, String t) {
-        int trans = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) != t.charAt(i)) {
-                trans++;
-            }
-        }
-        return trans == 1;
     }
 }
