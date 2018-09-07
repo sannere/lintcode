@@ -29,16 +29,14 @@ public class Solution17 {
         }
 
         return new ArrayList<>(stack);
-
-
-
     }
+
     private List<List<Integer>> addToStack(int num, Stack<List<Integer>> stack) {
         if (!stack.empty()) {
             List<Integer> list = stack.pop();
             addToStack(num, stack);
             stack.push(list);
-            List<Integer> temp = new ArrayList<>(list);
+            List<Integer> temp = new ArrayList<>(list);//复制一个list
             temp.add(num);
 
             stack.push(temp);

@@ -1,15 +1,16 @@
 
 
 import basicStructure.UndirectedGraphNode;
-import solution.Solution616;
+import solution.Solution135;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution616 solution616 = new Solution616();
+        Solution135 solution135 = new Solution135();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -18,11 +19,11 @@ public class Solution {
         */
 
         //有返回值
-        int[][] pre = {{1,0}};
-        int[] result = solution616.findOrder(2,pre);
+        int nums[] = {2,3,6,7};
+        List<List<Integer>> result = solution135.combinationSum(nums, 7);
 
         //无返回值
-        //  solution616.sortColors2(nums, 2);
+        //  solution135.sortColors2(nums, 2);
 
         //打印一个值
         System.out.println("result: " + result);
