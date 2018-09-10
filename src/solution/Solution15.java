@@ -17,12 +17,10 @@ public class Solution15 {
             return results;
         }
         Arrays.sort(nums);
-        for (int i = 0; i < nums.length)
-        nextPermute(nums, 0, results);
+
+
 
         return results;
     }
-    private void nextPermute(int[] nums, List<List<Integer>> results) {
-        if ()
-    }
+
 }
