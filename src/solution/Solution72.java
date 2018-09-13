@@ -15,12 +15,11 @@ public class Solution72 {
                 inorder.length == 0 || postorder.length == 0) {
             return null;
         }
-        GetTree(inorder, postorder, 0);
+        return null;
+
     }
 
-    private TreeNode GetTree(int[] inorder, int[] postorder, int index) {
-        TreeNode cur = 
-    }
+
 
 
 
