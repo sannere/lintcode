@@ -1,16 +1,16 @@
 
-
-import basicStructure.UndirectedGraphNode;
-import solution.Solution135;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import basicStructure.UndirectedGraphNode;
+import solution.Solution382;
+
+
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution135 solution135 = new Solution135();
+        Solution382 solution382 = new Solution382();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -19,11 +19,11 @@ public class Solution {
         */
 
         //有返回值
-        int nums[] = {2,3,6,7};
-        List<List<Integer>> result = solution135.combinationSum(nums, 7);
+        int nums[] = {8990,3146,9568,3889,7253,7395,10032,6179,1299,8738,1315,1280,830,6593};
+        int result = solution382.triangleCount(nums);
 
         //无返回值
-        //  solution135.sortColors2(nums, 2);
+        //  solution382.sortColors2(nums, 2);
 
         //打印一个值
         System.out.println("result: " + result);
