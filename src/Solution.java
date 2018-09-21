@@ -4,15 +4,16 @@ import java.util.List;
 import java.util.Set;
 
 import basicStructure.ListNode;
+import basicStructure.TreeNode;
 import basicStructure.UndirectedGraphNode;
-import solution.Solution624;
+import solution.Solution70;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution624 solution624 = new Solution624();
+        Solution70 solution70 = new Solution70();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -20,13 +21,21 @@ public class Solution {
         head.neighbors.add(head);
         */
 
-      //  /*有返回值
-        HashSet<String> set = new HashSet();
-        set.add("ab");
+     //   /*创建树
+        TreeNode root = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        root.right = node2;
+        node2.left = node3;
+     //   */
+
+       // /*有返回值
+        //HashSet<String> set = new HashSet();
+      //  set.add("ab");
 
 
-        int result = solution624.minLength("abaababab",set);
-    //    */
+        List<List<Integer>> result = solution70.levelOrderBottom(root);
+   //     */
 
         /*创建链表
         ListNode list1 = new ListNode(1);
@@ -38,10 +47,10 @@ public class Solution {
         * */
 
         //无返回值
-        //  solution624.sortColors2(nums, 2);
+        //  solution70.sortColors2(nums, 2);
 
         //打印一个值
-        System.out.println("result: " + result);
+       // System.out.println("result: " + result);
 
 
         /*打印数组
@@ -50,6 +59,7 @@ public class Solution {
             System.out.print("[" + i + "]:" + nums[i] + "  ");
         }
         */
+
         /*打印图
         System.out.println("图：");
         System.out.println("head: " + result);
@@ -57,6 +67,18 @@ public class Solution {
             System.out.println("neighbors: " + neighbor);
         }
         */
+
+      //  /*打印链表
+        System.out.println("[");
+        for (List<Integer> list : result) {
+            System.out.print("[");
+            for (int i : list) {
+                System.out.print(i + " ");
+            }
+            System.out.println("],");
+        }
+        System.out.print("]");
+      //  */
 
     }
 }
