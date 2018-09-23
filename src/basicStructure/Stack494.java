@@ -11,6 +11,7 @@ public class Stack494 {
 
     Queue<Integer> q1 = new LinkedList();
     Queue<Integer> q2 = new LinkedList();
+    Queue<TreeNode> q3 = new LinkedList();
 
 
     public void push(int x) {
