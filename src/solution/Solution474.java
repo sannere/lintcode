@@ -1,8 +1,7 @@
 package solution;
-class ParentTreeNode {
-    public ParentTreeNode parent, left, right;
 
- }
+import basicStructure.ParentTreeNode;
+
 public class Solution474 {
     /*
      * @param root: The root of the tree
