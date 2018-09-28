@@ -6,14 +6,14 @@ import java.util.Set;
 import basicStructure.ListNode;
 import basicStructure.TreeNode;
 import basicStructure.UndirectedGraphNode;
-import solution.Solution246;
+import solution.Solution153;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution246 solution246 = new Solution246();
+        Solution153 solution153 = new Solution153();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -21,23 +21,22 @@ public class Solution {
         head.neighbors.add(head);
         */
 
-     //   /*创建树
+        /*创建树
         TreeNode root = new TreeNode(1);
         TreeNode node2 = new TreeNode(-2);
         TreeNode node3 = new TreeNode(1);
         TreeNode node4 = new TreeNode(2);
-     //   TreeNode node5 = new TreeNode(2);
+        TreeNode node5 = new TreeNode(2);
         root.left = node2;
         node2.left = node3;
         node3.left = node4;
-     //   */
+        */
 
        // /*有返回值
-        //HashSet<String> set = new HashSet();
-      //  set.add("ab");
+        int[] num = {1,1,2,5,6,7,10};
 
 
-        List<List<Integer>> result = solution246.binaryTreePathSum2(root, 2);
+        List<List<Integer>> result = solution153.combinationSum2(num, 8);
    //     */
 
         /*创建链表
@@ -50,7 +49,7 @@ public class Solution {
         * */
 
         //无返回值
-        //  solution246.sortColors2(nums, 2);
+        //  solution153.sortColors2(nums, 2);
 
         //打印一个值
        // System.out.println("result: " + result);
