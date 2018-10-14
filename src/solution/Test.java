@@ -1,8 +1,12 @@
 package solution;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Test {
     public static void main(String args[]) {
-        boolean[][] arr = new boolean[2][3];
-        System.out.println(arr[1][1]);
+        List<String> list = new ArrayList();
+        list.add("abc");
+        System.out.println(String.join(" ", list));
     }
 }

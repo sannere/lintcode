@@ -6,14 +6,14 @@ import java.util.Set;
 import basicStructure.ListNode;
 import basicStructure.TreeNode;
 import basicStructure.UndirectedGraphNode;
-import solution.Solution153;
+import solution.Solution427;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution153 solution153 = new Solution153();
+        Solution427 solution427 = new Solution427();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -33,10 +33,10 @@ public class Solution {
         */
 
        // /*有返回值
-        int[] num = {1,1,2,5,6,7,10};
 
 
-        List<List<Integer>> result = solution153.combinationSum2(num, 8);
+        List<String> result = solution427.generateParenthesis(2);
+
    //     */
 
         /*创建链表
@@ -49,10 +49,10 @@ public class Solution {
         * */
 
         //无返回值
-        //  solution153.sortColors2(nums, 2);
+        //  solution427.sortColors2(nums, 2);
 
         //打印一个值
-       // System.out.println("result: " + result);
+        System.out.println("result: " + result);
 
 
         /*打印数组
@@ -70,7 +70,7 @@ public class Solution {
         }
         */
 
-      //  /*打印链表
+        /*打印链表
         System.out.println("[");
         for (List<Integer> list : result) {
             System.out.print("[");
@@ -80,7 +80,7 @@ public class Solution {
             System.out.println("],");
         }
         System.out.print("]");
-      //  */
+        */
 
     }
 }
