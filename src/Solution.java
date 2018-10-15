@@ -6,14 +6,14 @@ import java.util.Set;
 import basicStructure.ListNode;
 import basicStructure.TreeNode;
 import basicStructure.UndirectedGraphNode;
-import solution.Solution427;
+import solution.Solution780;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution427 solution427 = new Solution427();
+        Solution780 solution780 = new Solution780();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -35,7 +35,7 @@ public class Solution {
        // /*有返回值
 
 
-        List<String> result = solution427.generateParenthesis(2);
+        List<String> result = solution780.removeInvalidParentheses("()())()");
 
    //     */
 
@@ -49,7 +49,7 @@ public class Solution {
         * */
 
         //无返回值
-        //  solution427.sortColors2(nums, 2);
+        //  solution780.sortColors2(nums, 2);
 
         //打印一个值
         System.out.println("result: " + result);
