@@ -6,14 +6,14 @@ import java.util.Set;
 import basicStructure.ListNode;
 import basicStructure.TreeNode;
 import basicStructure.UndirectedGraphNode;
-import solution.Solution780;
+import solution.Solution107;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution780 solution780 = new Solution780();
+        Solution107 solution107 = new Solution107();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -35,7 +35,11 @@ public class Solution {
        // /*有返回值
 
 
-        List<String> result = solution780.removeInvalidParentheses("()())()");
+        Set<String> dict = new HashSet();
+        dict.add("dog");
+        dict.add("s");
+        dict.add("gs");
+        boolean result = solution107.wordBreak("dogs",dict);
 
    //     */
 
@@ -49,7 +53,7 @@ public class Solution {
         * */
 
         //无返回值
-        //  solution780.sortColors2(nums, 2);
+        //  solution107.sortColors2(nums, 2);
 
         //打印一个值
         System.out.println("result: " + result);

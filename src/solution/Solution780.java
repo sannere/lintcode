@@ -1,7 +1,9 @@
 package solution;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Solution780 {
     /**
@@ -12,6 +14,8 @@ public class Solution780 {
     int leftSum, rightSum;
     public List<String> removeInvalidParentheses(String s) {
         List<String> results = new ArrayList();
+        Set<String> set1 = new HashSet();
+        Set<String> set2 = new HashSet();
 
         if (s == null || s.length() == 0) {
             results.add("");
@@ -20,33 +24,52 @@ public class Solution780 {
         s = CountNums(s);
 
         if (leftSum > rightSum) {
-            removeLeft(s, s.length() - 1, 0, 0, results);
+            removeLeft(s, s.length() - 1, 0, 0, set1);
+            for (String str : set1) {
+                removeBoth(str, 0, 0, 0, set2);
+            }
         }
         if (leftSum < rightSum) {
-            removeRight(s, 0, 0, 0, results);
+            removeRight(s, 0, 0, 0, set2);
+
         }
         if (leftSum == rightSum) {
-            removeBoth(s, 0, 0, 0, results);
+            removeBoth(s, 0, 0, 0, set2);
         }
+
+        results.addAll(set2);
         return results;
     }
 
     private String CountNums(String s) {
         int i = 0;
         StringBuilder sb = new StringBuilder(s);
-        while (i < s.length()) {
-            //去掉不合法的头
-            if (sb.charAt(0) == ')') {
-                sb.deleteCharAt(0);
-                continue;
+
+        //去掉不合法的头
+        while (i < sb.length() && sb.charAt(i) != '(') {
+            if (sb.charAt(i) == ')') {
+                sb.deleteCharAt(i);
             }
-            //去掉不合法的尾巴
-            int len = sb.length();
-            if (sb.charAt(len - 1) == '(') {
-                sb.deleteCharAt(len - 1);
-                continue;
+            else {
+                i++;
             }
-            //分别计数
+        }
+
+        //去掉不合法的尾巴
+        i = sb.length() - 1;
+        while (i >= 0 && sb.charAt(i) != ')') {
+            if (sb.charAt(i) == '(') {
+                sb.deleteCharAt(i);
+                i = sb.length() - 1;
+            }
+            else {
+                i--;
+            }
+        }
+
+        //分别计数
+        i = 0;
+        while (i < sb.length()) {
             if (sb.charAt(i) == '(') {
                 leftSum++;
             }
@@ -58,9 +81,9 @@ public class Solution780 {
         return sb.toString();
     }
 
-    private void removeLeft(String s, int index, int left, int right, List<String> results) {
+    private void removeLeft(String s, int index, int left, int right, Set<String> set) {
         if (index < 0) {
-            results.add(s);
+            set.add(s);
             return;
         }
         char c = s.charAt(index);
@@ -73,7 +96,7 @@ public class Solution780 {
         }
 
         if (left <= right) {
-            removeLeft(s, index - 1, left, right, results);
+            removeLeft(s, index - 1, left, right, set);
             return;
         }
 
@@ -82,14 +105,14 @@ public class Solution780 {
         for (int i = index; i < s.length(); i++) {
             if (s.charAt(i) == '(' && s.charAt(i + 1) != '(') {
                 removeLeft(s.substring(0,i) + s.substring(i + 1), index - 1,
-                        left - 1, right, results);
+                        left - 1, right, set);
             }
         }
     }
 
-    private void removeRight(String s, int index, int left, int right, List<String> results) {
+    private void removeRight(String s, int index, int left, int right, Set<String> set) {
         if (index == s.length()) {
-            results.add(s);
+            set.add(s);
             return;
         }
         char c = s.charAt(index);
@@ -101,7 +124,7 @@ public class Solution780 {
         }
 
         if (left >= right) {
-            removeRight(s, index + 1, left, right, results);
+            removeRight(s, index + 1, left, right, set);
             return;
         }
 
@@ -109,15 +132,15 @@ public class Solution780 {
 
         for (int i = index; i >= 0; i--) {
             if (s.charAt(i) == ')' && s.charAt(i - 1) != ')') {
-                removeLeft(s.substring(0,i) + s.substring(i + 1), index + 1,
-                        left, right - 1, results);
+                removeRight(s.substring(0,i) + s.substring(i + 1), index,
+                        left, right - 1, set);
             }
         }
     }
 
-    private void removeBoth(String s, int index, int left, int right, List<String> results) {
+    private void removeBoth(String s, int index, int left, int right, Set<String> set) {
         if (index == s.length()) {
-            results.add(s);
+            set.add(s);
             return;
         }
 
@@ -131,13 +154,14 @@ public class Solution780 {
 
         if (right > left) {
             removeLeft(s.substring(0,index) + s.substring(index + 1), s.length() - 2,
-                    0, 0, results);
+                    0, 0, set);
 
         }
         else {
-            removeBoth(s, index + 1, left , right, results);
+            removeBoth(s, index + 1, left , right, set);
         }
     }
+
 
 
 }
