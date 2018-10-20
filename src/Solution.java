@@ -6,14 +6,14 @@ import java.util.Set;
 import basicStructure.ListNode;
 import basicStructure.TreeNode;
 import basicStructure.UndirectedGraphNode;
-import solution.Solution10_2;
+import solution.Solution15_2;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution10_2 solution10_2 = new Solution10_2();
+        Solution15_2 solution15_2 = new Solution15_2();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -35,11 +35,8 @@ public class Solution {
        // /*有返回值
 
 
-        Set<String> dict = new HashSet();
-        dict.add("dog");
-        dict.add("s");
-        dict.add("gs");
-        List<String> result = solution10_2.stringPermutation2("cba");
+        int[] nums = {1,2,3};
+        List<List<Integer>> result = solution15_2.permute(nums);
 
    //     */
 
@@ -53,7 +50,7 @@ public class Solution {
         * */
 
         //无返回值
-        //  solution10_2.sortColors2(nums, 2);
+        //  solution15_2.sortColors2(nums, 2);
 
         //打印一个值
         System.out.println("result: " + result);

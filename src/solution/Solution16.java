@@ -4,16 +4,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution15 {
-    public List<List<Integer>> permute(int[] nums) {
+public class Solution16 {
+    /*
+     * @param :  A list of integers
+     * @return: A list of unique permutations
+     */
+    public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> results = new ArrayList();
+
         if (nums == null || nums.length == 0) {
+
             results.add(new ArrayList());
             return results;
         }
 
         Arrays.sort(nums);
-
         helper(nums, new boolean[nums.length], new ArrayList(), results);
         return results;
     }
@@ -22,14 +27,13 @@ public class Solution15 {
                         List<Integer> permutation,
                         List<List<Integer>> results) {
         int len = nums.length;
-
-        if (permutation.size() == len) {
+        if (len == permutation.size()) {
             results.add(new ArrayList(permutation));
             return;
         }
 
         for (int i = 0; i < len; i++) {
-            if (visited[i]) {
+            if (visited[i] || (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1])) {
                 continue;
             }
             visited[i] = true;
@@ -39,5 +43,4 @@ public class Solution15 {
             permutation.remove(permutation.size() - 1);
         }
     }
-
 }
