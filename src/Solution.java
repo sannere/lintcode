@@ -6,14 +6,14 @@ import java.util.Set;
 import basicStructure.ListNode;
 import basicStructure.TreeNode;
 import basicStructure.UndirectedGraphNode;
-import solution.Solution15_2;
+import solution.Solution132;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution15_2 solution15_2 = new Solution15_2();
+        Solution132 solution132 = new Solution132();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -35,8 +35,11 @@ public class Solution {
        // /*有返回值
 
 
-        int[] nums = {1,2,3};
-        List<List<Integer>> result = solution15_2.permute(nums);
+        char[][] board = {{'d', 'o', 'a', 'f', },
+                {'a', 'g', 'a', 'i', },
+                {'', '', '', '', },
+                {'', '', '', '', }};
+        List<List<Integer>> result = solution132.wordSearchII(nums);
 
    //     */
 
@@ -50,7 +53,7 @@ public class Solution {
         * */
 
         //无返回值
-        //  solution15_2.sortColors2(nums, 2);
+        //  solution132.sortColors2(nums, 2);
 
         //打印一个值
         System.out.println("result: " + result);
