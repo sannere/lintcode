@@ -10,7 +10,6 @@ public class Solution132 {
      */
 
     int[][] direction = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-
     public List<String> wordSearchII(char[][] board, List<String> words) {
         if (words == null || words.size() == 0 ||
                 board == null || board.length == 0 || board[0].length == 0) {

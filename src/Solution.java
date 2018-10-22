@@ -6,14 +6,14 @@ import java.util.Set;
 import basicStructure.ListNode;
 import basicStructure.TreeNode;
 import basicStructure.UndirectedGraphNode;
-import solution.Solution132;
+import solution.Solution121;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution132 solution132 = new Solution132();
+        Solution121 solution121 = new Solution121();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -34,12 +34,13 @@ public class Solution {
 
        // /*有返回值
 
+        Set<String> dict = new HashSet<>();
+        dict.add("a");
+        dict.add("b");
+        dict.add("c");
 
-        char[][] board = {{'d', 'o', 'a', 'f', },
-                {'a', 'g', 'a', 'i', },
-                {'', '', '', '', },
-                {'', '', '', '', }};
-        List<List<Integer>> result = solution132.wordSearchII(nums);
+
+        List<List<String>> result = solution121.findLadders("a", "c", dict);
 
    //     */
 
@@ -53,10 +54,10 @@ public class Solution {
         * */
 
         //无返回值
-        //  solution132.sortColors2(nums, 2);
+        //  solution121.sortColors2(nums, 2);
 
         //打印一个值
-        System.out.println("result: " + result);
+       // System.out.println("result: " + result);
 
 
         /*打印数组
