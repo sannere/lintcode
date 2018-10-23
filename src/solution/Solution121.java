@@ -23,11 +23,6 @@ public class Solution121 {
         Map<String, Set<String>> nextWords = new HashMap<>();
         List<String> path = new ArrayList<>();
 
-        if (start.length() != end.length() ||
-                !start.equals(end) && dict == null || dict.size() == 0) {
-            return results;
-        }
-
         path.add(start);
         dict.add(end);
         dict.add(start);
@@ -43,25 +38,17 @@ public class Solution121 {
                      List<String> path,
                      List<List<String>> results,
                      Map<String, Set<String>> nextWords) {
-        if (start.equals(end) && path.size() == distance.get(path.get(0)) + 1) {
+        if (start.equals(end) ) {
             results.add(new ArrayList<>(path));
             return;
         }
 
-        int shortest = distance.get(start);
-
-
         for (String next : nextWords.get(start)) {
-            if (!distance.containsKey(next) || distance.get(next) > shortest) {
-                continue;
+            if (distance.containsKey(next) && distance.get(next) == distance.get(start) - 1) {
+                path.add(next);
+                DFS(next, end, distance, path, results, nextWords);
+                path.remove(path.size() - 1);
             }
-            if (distance.get(next) < shortest) {
-                shortest = distance.get(next);
-            }
-
-            path.add(next);
-            DFS(next, end, distance, path, results, nextWords);
-            path.remove(path.size() - 1);
         }
     }
     private void getNext(Set<String> dict, String start,Map<String, Set<String>> nextWords) {
@@ -100,8 +87,7 @@ public class Solution121 {
                 String s = queue.poll();
                 distance.put(s, length);
                 getNext(dict,s,nextWords);
-                //bfs就到start为止，如果还有别的点，距离>=start，也不用求距离了，
-                // 这种没有标注距离的点，因为比start离终点还远，所以不会走这些点
+
                 if (s.equals(start)) {
                     return;
                 }
