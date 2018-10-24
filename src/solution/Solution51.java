@@ -20,6 +20,7 @@ public class Solution51 {
         for (int i = len - 1; i > 0; i--) {
             if (nums.get(i - 1) > nums.get(i)) {
                 index = i - 1;
+                break;
             }
         }
 
@@ -32,10 +33,13 @@ public class Solution51 {
                 int temp = nums.get(j);
                 nums.set(j, nums.get(index));
                 nums.set(index, temp);
+                break;
             }
         }
 
-        Collections.swap(nums, index + 1, len - 1);
+        if (index + 1 < len) {
+            Collections.reverse(nums.subList(index + 1, len));
+        }
         return nums;
     }
 }

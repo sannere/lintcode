@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -6,14 +7,14 @@ import java.util.Set;
 import basicStructure.ListNode;
 import basicStructure.TreeNode;
 import basicStructure.UndirectedGraphNode;
-import solution.Solution121;
+import solution.Solution634;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution121 solution121 = new Solution121();
+        Solution634 solution634 = new Solution634();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -34,13 +35,14 @@ public class Solution {
 
        // /*有返回值
 
-        Set<String> dict = new HashSet<>();
-        dict.add("a");
-        dict.add("b");
-        dict.add("c");
+        List<String> list = new ArrayList<>();
+        list.add("abat");
+        list.add("baba");
+        list.add("atan");
+        list.add("atal");
+        String[] arr = {"abat","baba","atan","atal"};
 
-
-        List<List<String>> result = solution121.findLadders("a", "c", dict);
+        List<List<String>> result = solution634.wordSquares(arr);
 
    //     */
 
@@ -54,7 +56,7 @@ public class Solution {
         * */
 
         //无返回值
-        //  solution121.sortColors2(nums, 2);
+        //  solution634.sortColors2(nums, 2);
 
         //打印一个值
        // System.out.println("result: " + result);
