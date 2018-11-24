@@ -8,7 +8,7 @@ public class Solution209_2 {
     public char firstUniqChar(String str) {
         char[] arr = str.toCharArray();
         int[] chars = new int[256];
-        System.out.println("chars[arr[0]]:" + chars[arr[0]] + "   chars[1]:" + chars[1]);
+
         int i = 0;
 
         for (char ch : arr) {

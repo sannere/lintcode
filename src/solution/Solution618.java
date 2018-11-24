@@ -1,3 +1,5 @@
+package solution;
+
 import basicStructure.UndirectedGraphNode;
 
 import java.util.*;

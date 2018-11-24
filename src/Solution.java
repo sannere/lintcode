@@ -7,14 +7,15 @@ import java.util.Set;
 import basicStructure.ListNode;
 import basicStructure.TreeNode;
 import basicStructure.UndirectedGraphNode;
-import solution.Solution634;
+import basicStructure.Interval;
+import solution.Solution665;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution634 solution634 = new Solution634();
+        Solution665 solution665 = new Solution665();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -41,8 +42,25 @@ public class Solution {
         list.add("atan");
         list.add("atal");
         String[] arr = {"abat","baba","atan","atal"};
+        int[][] nums = {{1,10},{3},{4,7}};
 
-        List<List<String>> result = solution634.wordSquares(arr);
+        Interval inter1 = new Interval(2,4);
+        Interval inter2 = new Interval(12,17);
+
+        Interval inter3 = new Interval(3,16);
+        Interval inter4 = new Interval(17,20);
+
+        List<Interval> list1 = new ArrayList<>();
+        List<Interval> list2 = new ArrayList<>();
+
+        list1.add(inter1);
+        list1.add(inter2);
+        list2.add(inter3);
+        list2.add(inter4);
+        int[][] nums1 = {{11,23,11,19,8,15,7,18,9}};
+        int[] nums2 = {2,3,4,5};
+
+        solution665.getNumMatrixSum(nums1);
 
    //     */
 
@@ -56,7 +74,7 @@ public class Solution {
         * */
 
         //无返回值
-        //  solution634.sortColors2(nums, 2);
+        //  solution665.sortColors2(nums, 2);
 
         //打印一个值
        // System.out.println("result: " + result);
