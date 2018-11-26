@@ -8,14 +8,14 @@ import basicStructure.ListNode;
 import basicStructure.TreeNode;
 import basicStructure.UndirectedGraphNode;
 import basicStructure.Interval;
-import solution.Solution665;
+import solution.Solution603;
 
 
 
 
 public class Solution {
     public static void main(String[] args) {
-        Solution665 solution665 = new Solution665();
+        Solution603 solution603 = new Solution603();
 
         /*创建图
         UndirectedGraphNode head = new UndirectedGraphNode(0);
@@ -58,9 +58,9 @@ public class Solution {
         list2.add(inter3);
         list2.add(inter4);
         int[][] nums1 = {{11,23,11,19,8,15,7,18,9}};
-        int[] nums2 = {2,3,4,5};
+        int[] nums2 = {1,2,3};
 
-        solution665.getNumMatrixSum(nums1);
+        List<Integer> result = solution603.largestDivisibleSubset(nums2);
 
    //     */
 
@@ -74,7 +74,7 @@ public class Solution {
         * */
 
         //无返回值
-        //  solution665.sortColors2(nums, 2);
+        //  solution603.sortColors2(nums, 2);
 
         //打印一个值
        // System.out.println("result: " + result);
